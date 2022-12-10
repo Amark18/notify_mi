@@ -1,5 +1,5 @@
 ## Notify Me
-Notify Me makes it easy to send yourself notifcations from your personal projects by utilizing your gmail account. It is very useful when used together with a Raspberry Pi in order to create an easy way and ***free*** way to send messages in response to events from IOT devices. 
+Notify Me makes it easy to send yourself notifcations from your personal projects by utilizing your gmail account. It is very useful when used together with a Raspberry Pi in order to create an easy and ***free*** way to send messages in response to events from IOT devices.
 
 How to Use:
 ```python
