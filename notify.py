@@ -86,9 +86,9 @@ def check_for_exceptions():
     # check if info have been addeded in notify_me_secrets.py
     if helper.no_credentials_added():
         raise helper.NoCredentialsAdded
-    
+    # verify phone number formatting
     if len(PHONE_NUMBER) != 10 or not PHONE_NUMBER.isdigit():
         raise helper.PhoneNumberError
-    
+    # verify provider is found in oroviders.py
     if PROVIDERS.get(PHONE_PROVIDER) is None:
         raise helper.ProviderNotRecognized

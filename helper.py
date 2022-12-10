@@ -7,7 +7,7 @@ This is a helper class that contains constants
 and methods used throughout multiple files.
 '''
 
-# mms constants
+# constants
 EMPTY = ""
 SMTP_GMAIL = "smtp.gmail.com"
 SMTP_PORT = 465
