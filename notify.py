@@ -89,6 +89,6 @@ def check_for_exceptions():
     # verify phone number formatting
     if len(PHONE_NUMBER) != 10 or not PHONE_NUMBER.isdigit():
         raise helper.PhoneNumberError
-    # verify provider is found in oroviders.py
+    # verify provider is found in providers.py
     if PROVIDERS.get(PHONE_PROVIDER) is None:
         raise helper.ProviderNotRecognized
