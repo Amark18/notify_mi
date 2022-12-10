@@ -10,7 +10,8 @@ git clone https://github.com/Amark18/notify_me.git
 cd notify_me
 # 4. generate an app password for your gmail account 
 # see https://www.getmailbird.com/gmail-app-password/
-# 5. add your gmail+password and phone provider to notify_me_secrets.py
+# 5. add your gmail+password (from step 4), phone number
+# and phone provider to notify_me_secrets.py
 
 # 6. import into your own project
 from notify_me import notify
