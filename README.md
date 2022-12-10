@@ -8,9 +8,11 @@ How to Use:
 git clone https://github.com/Amark18/notify_me.git
 # 3. go inside directory
 cd notify_me
-# 4. add your credentials to notify_me_secrets.py
+# 4. generate an app password for your gmail account 
+# see https://www.getmailbird.com/gmail-app-password/
+# 5. add your gmail+password and phone provider to notify_me_secrets.py
 
-# 5. import into your own project
+# 6. import into your own project
 from notify_me import notify
 
 # That's it, now you are ready to use
