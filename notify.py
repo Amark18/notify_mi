@@ -48,7 +48,7 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
     # some do not allow mms
     message_type = helper.MESSAGE_TYPE[0] \
         if PROVIDERS.get(phone_provider).get(helper.MMS_SUPPORT_KEY) \
-        else helper.MESSAGE_TYPE[0]
+        else helper.MESSAGE_TYPE[1]
     # create receiver email based on their phone number and carrier
     receiver_email = f'{phone_number}@{PROVIDERS.get(phone_provider).get(message_type)}'
     
