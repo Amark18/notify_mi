@@ -1,9 +1,9 @@
 ## Notify Me
-🔔 Notify Me simplifies sending yourself text notifications from your personal projects by utilizing your gmail account. It is a convenient and cost-effective solution with the goal of providing you an `easy` and `free` way to send messages in response to events.
+🔔 Notify Me simplifies sending yourself text and email notifications from your personal projects by utilizing your gmail account. It is a convenient and cost-effective solution with the goal of providing you an `easy` and `free` way to send messages in response to events.
 
 Notify Me is particularly useful when working with IoT devices. It can allow you to receive messages in response to events such as when a sensor value reaches a certain threshold, when a sensor detects something, when a sensor encounters an error, or when a daily or custom timed event occurs. This makes it easy to keep track of what is happening with your IoT device and react to any change or issue that may arise.
 
-With Notify Me, you can also `attach a file` with your text message. The maximum file size allowed is 1 MB and you can use any of the 69 supported file types, thus providing you flexibility in the type of attachment you want to include in your messages.
+With Notify Me, you can also `attach a file` with your text or email message. The maximum file size allowed is 1 MB and you can use any of the 69 supported file types, thus providing you flexibility in the type of attachment you want to include in your messages.
 
 ### Table of Contents
 - [Purpose](#purpose)
@@ -33,16 +33,21 @@ cd notify_me
 # see https://www.getmailbird.com/gmail-app-password/
 # 5. add your gmail + password (from step 4), phone number
 # and phone provider to notify_me_secrets.py
-# That's it, now you are ready to use
+
+# ✔️ That's it, now you are ready to use
 ```
 
 #### Usage:
 
+###### Import
 ```python
 # import into your own project
 from notify_me import notify
+```
 
-# send only a message
+###### Text messsage Only (Default)
+```python
+# send only a text message
 notify.send_message("Hello World!")
 
 # add a subject line to the message
@@ -53,4 +58,16 @@ notify.send_message(subject = "I found it", message = "My dream car", file_attac
 
 # run without blocking main thread
 notify.send_message("Hello World!", threaded = True)
+```
+
+###### Text + Email
+```python
+# send text message + email
+notify.send_message("Hello World!", send_to = "name@email.com")
+```
+
+###### Email Only
+```python
+# send only email
+notify.send_message("Hello World!", send_to = "name@email.com", send_email_only = True)
 ```
