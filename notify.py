@@ -26,7 +26,7 @@ def send_message(message, subject = None, file_attachment = None, threaded = Fal
 
 def __send_message_via_email(message, subject = None , file_attachment = None):
     # ensure that credentials and info added meets specifications
-    check_for_exceptions()
+    __check_for_exceptions()
     
     # initialize variables needed
     phone_number: str = PHONE_NUMBER
@@ -83,7 +83,7 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
         # send email with body and attachment
         email.sendmail(sender_email, receiver_email, email_message.as_string())
 
-def check_for_exceptions():
+def __check_for_exceptions():
     # check if credentials have been added to notify_me_secrets.py
     if helper.no_credentials_added():
         raise helper.NoCredentialsAdded
