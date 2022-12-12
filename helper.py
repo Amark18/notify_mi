@@ -15,6 +15,8 @@ MESSAGE_TYPE = ["mms", "sms"]
 MMS_SUPPORT_KEY = "mms_support"
 TEXT_TYPE = "plain"
 READ_BINARY = 'rb'
+AT_SYMBOL = "@"
+EMAIL_SUFFIX = ".com"
 MB = 1000000
 
 # see if credentials exist in notify_me_secrets.py
@@ -41,6 +43,10 @@ class ProviderNotRecognized(Exception):
 class ExtensionNotFound(Exception):
     def __str__(self):
         return "Attached file has an extension that is not recognized."
+    
+class EmailFormatError(Exception):
+    def __str__(self):
+        return "The receiver email should follow format -> name@email.com."
 
 # decorator to automatically launch a function in a thread
 def threaded(func):
