@@ -17,7 +17,7 @@ TEXT_TYPE = "plain"
 READ_BINARY = 'rb'
 MB = 1000000
 
-# see if credentials exist in secrets_firebase.py
+# see if credentials exist in notify_me_secrets.py
 def no_credentials_added():
     return EMPTY in [PHONE_NUMBER, SENDER_CREDENTIALS, PHONE_PROVIDER]
 
@@ -40,7 +40,7 @@ class ProviderNotRecognized(Exception):
 
 class ExtensionNotFound(Exception):
     def __str__(self):
-        return "Attached file extension is not recognized."
+        return "Attached file has an extension that is not recognized."
 
 # decorator to automatically launch a function in a thread
 def threaded(func):
@@ -123,7 +123,7 @@ extensions_and_mime_types = [
     (".3g2", "video/3gpp2"),    
     (".7z", "application/x-7z-compressed")]
 
-# param: find_ext - desired extension to find 
+# param: find_ext -> desired extension to find 
 # return: mime type for the desired extension
 def find_ext_mime_type(find_ext):
     for extension_and_mime_type in extensions_and_mime_types:

@@ -25,6 +25,7 @@ def send_message(message, subject = None, file_attachment = None, threaded = Fal
         __send_message_via_email(message, subject, file_attachment)
 
 def __send_message_via_email(message, subject = None , file_attachment = None):
+    # ensure that credentials and info added meets specifications
     check_for_exceptions()
     
     # initialize variables needed
@@ -42,10 +43,10 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
         mime_maintype: str = helper.find_ext_mime_type(mime_subtype)
         file_name: str = attachment.name
         
-    # get information needed to send message
+    # retrieve information needed to send message
     sender_email, email_password = sender_credentials
     # get message type (sms/mms) based on provider
-    # some do not allow mms
+    # some do not have mms capabilities
     message_type = helper.MESSAGE_TYPE[0] \
         if PROVIDERS.get(phone_provider).get(helper.MMS_SUPPORT_KEY) \
         else helper.MESSAGE_TYPE[1]
@@ -62,7 +63,7 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
     
     # if file was included, attach to message
     if file_attachment is not None and Path(file_attachment).is_file:
-        # gmail does not allow a file > 1MB to be attached
+        # gmail does not allow a file > 1 MB to be attached
         # therefore the entire message will not be sent
         if attachment.stat().st_size > 1 * helper.MB:
             raise helper.FileSizeExceeded
@@ -83,12 +84,12 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
         email.sendmail(sender_email, receiver_email, email_message.as_string())
 
 def check_for_exceptions():
-    # check if info have been addeded in notify_me_secrets.py
+    # check if credentials have been added to notify_me_secrets.py
     if helper.no_credentials_added():
         raise helper.NoCredentialsAdded
-    # verify phone number formatting
+    # verify phone number is formatted correctly
     if len(PHONE_NUMBER) != 10 or not PHONE_NUMBER.isdigit():
         raise helper.PhoneNumberError
-    # verify provider is found in providers.py
+    # verify provider given is found in providers.py
     if PROVIDERS.get(PHONE_PROVIDER) is None:
         raise helper.ProviderNotRecognized

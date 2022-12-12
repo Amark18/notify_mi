@@ -4,7 +4,7 @@
 # "Consumer Cellular", "Google Project Fi", "Metro PCS", 
 # "Mint Mobile", "Page Plus", "Republic Wireless", "Sprint",
 # "Straight Talk", "T-Mobile", "Ting", "Tracfone", "U.S. 
-#  Cellular", "Verizon", "Virgin Mobile", "Xfinity Mobile"
+#  Cellular", "Verizon", "Virgin Mobile", and "Xfinity Mobile"
 
 PROVIDERS = {
     "AT&T": {"sms": "txt.att.net", "mms": "mms.att.net", "mms_support": True},
