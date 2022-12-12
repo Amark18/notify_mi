@@ -31,7 +31,6 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
     phone_number: str = PHONE_NUMBER
     _message: str = message
     file_attachment: str = file_attachment
-    mime_maintype: str = helper.FILE_TYPE
     _subject: str = subject
     phone_provider: str = PHONE_PROVIDER
     sender_credentials: tuple = SENDER_CREDENTIALS
@@ -40,6 +39,7 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
     if file_attachment is not None:
         attachment = Path(file_attachment)
         mime_subtype: str = attachment.suffix
+        mime_maintype: str = helper.find_ext_mime_type(mime_subtype)
         file_name: str = attachment.name
         
     # get information needed to send message
@@ -92,3 +92,4 @@ def check_for_exceptions():
     # verify provider is found in oroviders.py
     if PROVIDERS.get(PHONE_PROVIDER) is None:
         raise helper.ProviderNotRecognized
+    
