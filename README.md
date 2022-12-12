@@ -8,6 +8,14 @@ Personally, I think Notify Me is very handy when working with IOT (Internet of T
 - [Usage](#usage)
 
 #### Getting Started:
+
+To add Notify Me to your project, place in your top level directory.  
+> Your_Project  
+> &emsp; &#x21B3; ✔️ notify_me  
+> &emsp; &#x21B3; your files  
+> &emsp; &#x21B3; a directory  
+> &emsp; &emsp; &#x21B3; ❌ notify_me
+
 ```python
 # 1. navigate to inside your project directory
 # 2. clone repo
