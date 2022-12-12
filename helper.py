@@ -28,7 +28,7 @@ class NoCredentialsAdded(Exception):
 
 class FileSizeExceeded(Exception):
     def __str__(self):
-        return "Attachment cannot be me more than 1MB."
+        return "Attachment cannot be more than 1MB."
 
 class PhoneNumberError(Exception):
     def __str__(self):

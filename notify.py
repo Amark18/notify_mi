@@ -48,7 +48,7 @@ def __send_message_via_email(message, subject = None , file_attachment = None):
     # some do not allow mms
     message_type = helper.MESSAGE_TYPE[0] \
         if PROVIDERS.get(phone_provider).get(helper.MMS_SUPPORT_KEY) \
-        else helper.MESSAGE_TYPE[0]
+        else helper.MESSAGE_TYPE[1]
     # create receiver email based on their phone number and carrier
     receiver_email = f'{phone_number}@{PROVIDERS.get(phone_provider).get(message_type)}'
     
@@ -89,7 +89,6 @@ def check_for_exceptions():
     # verify phone number formatting
     if len(PHONE_NUMBER) != 10 or not PHONE_NUMBER.isdigit():
         raise helper.PhoneNumberError
-    # verify provider is found in oroviders.py
+    # verify provider is found in providers.py
     if PROVIDERS.get(PHONE_PROVIDER) is None:
         raise helper.ProviderNotRecognized
-    
