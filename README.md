@@ -9,6 +9,7 @@ With Notify Me, you can also `attach a file` with your text or email message. Th
 - [Purpose](#purpose)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [Special Thanks](#special-thanks)
 
 #### Purpose:
 
@@ -71,3 +72,6 @@ notify.send_message("Hello World!", send_to = "name@email.com")
 # send only email
 notify.send_message("Hello World!", send_to = "name@email.com", send_email_only = True)
 ```
+
+#### Special Thanks:
+[Alfredo Sequeida](https://github.com/AlfredoSequeida) for writing a detailed [article](https://www.alfredosequeida.com/blog/how-to-send-text-messages-for-free-using-python-use-python-to-send-text-messages-via-email/) and for making a great [video](https://www.youtube.com/watch?v=4-ysecoraKo&t=2s) that went step by step on how to send text messages using python. It was very useful for one of my projects so I am adding to what he did so that other people can find it useful.
