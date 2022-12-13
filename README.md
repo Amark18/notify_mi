@@ -3,7 +3,7 @@
 
 Notify Mi is particularly useful when working with IoT devices. It can allow you to receive messages in response to events such as when a sensor value reaches a certain threshold, when a sensor detects something, when a sensor encounters an error, or when a daily or custom timed event occurs. This makes it easy to keep track of what is happening with your IoT device and react to any change or issue that may arise.
 
-With Notify Mi, you can also `attach a file` with your text or email message. The maximum file size allowed is 1 MB and you can use any of the 69 supported file types, thus providing you flexibility in the type of attachment you want to include in your messages.
+With Notify Mi, you can also `attach a file` with your text or email message. The maximum file size allowed is 1 MB and you can use any of the 69 supported [file types](https://github.com/Amark18/notify_mi/blob/c9078313de1ea406ef087217ab11ceddc85d4968/src/notify_mi/helper.py#L64), thus providing you flexibility in the type of attachment you want to include in your messages.
 
 ### Table of Contents
 - [Purpose](#purpose)
@@ -18,7 +18,7 @@ Sending notifications through your Gmail account is not a novel idea. Notify Mi 
 #### Getting Started:
 
 1. Generate an app password for your gmail account by clicking [here](https://myaccount.google.com/apppasswords). 
-    - \<optional\> step by step [guide](https://www.getmailbird.com/gmail-app-password/)
+    - (optional) step by step [guide](https://www.getmailbird.com/gmail-app-password/)
     - use app password with your gmail address in a tuple like so &#8594; ("gmail address", "app password")
     
 2. Install Notify Mi
