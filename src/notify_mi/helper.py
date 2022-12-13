@@ -17,6 +17,7 @@ READ_BINARY = 'rb'
 AT_SYMBOL = "@"
 EMAIL_SUFFIX = ".com"
 MB = 1000000
+PHONE_NUMBER_LENGTH = 10
 
 # exceptions
 class FileSizeExceeded(Exception):
@@ -37,7 +38,7 @@ class ExtensionNotFound(Exception):
     
 class EmailFormatError(Exception):
     def __str__(self):
-        return "The receiver email should follow the following format -> name@email.com."
+        return "The receiver email should follow the following format -> email@gmail.com."
 
 class MessageError(Exception):
     def __str__(self):
@@ -45,11 +46,11 @@ class MessageError(Exception):
 
 class MessageTextError(Exception):
     def __str__(self):
-        return "Phone number AND phone provider is required for sending a text message."
+        return "Phone number AND phone provider are required for sending a text message."
 
-class MessageEmailError(Exception):
+class MessageFieldError(Exception):
     def __str__(self):
-        return "Receiver's email is required to send a message."
+        return "Interesting...trying to send a message without a message."
 
 # decorator to automatically launch a function in a thread
 def threaded(func):
@@ -59,6 +60,12 @@ def threaded(func):
         thread.start()
         return thread
     return wrapper
+
+
+# remove all non-digit characters from phone number
+def filter_phone_number(phone_number):
+    # filter requires a function, wrap phone number in type function
+    return ''.join(filter(type(phone_number).isdigit, phone_number))
 
 extensions_and_mime_types = [
     (".aac", "audio/aac"),    

@@ -56,7 +56,7 @@ def __send_message_via_email(
     file_attachment = None):
     
     # ensure that credentials and info added meets specifications
-    __check_for_exceptions(phone_number, phone_provider, send_to)
+    __check_for_exceptions(message, phone_number, phone_provider, send_to)
     
     # initialize variables needed
     _phone_number: str = phone_number
@@ -86,7 +86,7 @@ def __send_message_via_email(
             if PROVIDERS.get(_phone_provider).get(helper.MMS_SUPPORT_KEY) \
             else helper.MESSAGE_TYPE[1]
         # create receiver email based on their phone number and carrier
-        receiver_phone_number = f'{_phone_number}@{PROVIDERS.get(_phone_provider).get(message_type)}'
+        receiver_phone_number = f'{helper.filter_phone_number(_phone_number)}@{PROVIDERS.get(_phone_provider).get(message_type)}'
     
     # create gmail body
     email_message = MIMEMultipart()
@@ -126,7 +126,10 @@ def __send_message_via_email(
             email.sendmail(sender_email, send_to, email_message.as_string())
 
 
-def __check_for_exceptions(phone_number, phone_provider, send_to): 
+def __check_for_exceptions(message, phone_number, phone_provider, send_to): 
+    # check is message is empty
+    if message is None or message is helper.EMPTY:
+        raise helper.MessageFieldError
     # check if at least one message type is being sent
     # check if all paramters is empty
     if None in [phone_number, phone_provider]:
@@ -143,9 +146,8 @@ def __check_for_exceptions(phone_number, phone_provider, send_to):
             if helper.AT_SYMBOL not in send_to or helper.EMAIL_SUFFIX not in send_to:
                 raise helper.EmailFormatError
         # verify phone number is formatted correctly
-        if len(phone_number) != 10 or not phone_number.isdigit():
+        if len(helper.filter_phone_number(phone_number)) != helper.PHONE_NUMBER_LENGTH:
             raise helper.PhoneNumberError
         # verify provider given is found in providers.py
         if PROVIDERS.get(phone_provider) is None:
             raise helper.ProviderNotRecognized
-        
