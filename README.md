@@ -17,9 +17,13 @@ Sending notifications through your Gmail account is not a novel idea. Notify Mi 
 
 #### Getting Started:
 
+1. Generate an app password for your gmail account by clicking [here](https://myaccount.google.com/apppasswords). 
+    - \<optional\> step by step [guide](https://www.getmailbird.com/gmail-app-password/)
+    - use this password with your gmail like so ("your gmail address", "insert password here")
+    
+2. Install Notify Mi
+
 ```python
-# 1. generate an app password for your gmail account 
-# see https://www.getmailbird.com/gmail-app-password/
 # 2. install notify_mi using pip
 pip install notify_mi
 
@@ -45,23 +49,27 @@ notify.send_message("Hello World!", ("gmail", "password"),
 ```python
 # send text message + email
 # include phone_number, phone_provider, and receiver email
-notify.send_message("Hello World!", ("gmail", "password"), phone_number = "your_number", phone_provider= "select from list below", send_to = "name@email.com")
+notify.send_message("Hello World!", ("gmail", "password"), 
+    phone_number = "your_number", phone_provider= "select from list below", 
+    send_to = "name@email.com")
 ```
 
 ###### Email Only
 ```python
 # send only email
 # include receiver email
-notify.send_message("Hello World!", send_to = "name@email.com")
+notify.send_message("Hello World!", ("gmail", "password"), 
+    send_to = "name@email.com")
 ```
 
-###### Optional Paramters
+###### Optional Parameters
 ```python
 # add a subject line to the message
 notify.send_message(subject = "EMERGENCY", message = "No sweets detected in fridge!")
 
 # add a file attachment (69 file types supported)
-notify.send_message(subject = "I found it", message = "My dream car", file_attachment = "/path/car.png")
+notify.send_message(subject = "I found it", message = "My dream car", 
+    file_attachment = "/path/car.png")
 
 # run without blocking main thread
 notify.send_message("Hello World!", threaded = True)
@@ -78,4 +86,6 @@ notify.send_message("Hello World!", threaded = True)
 ```
 
 #### Special Thanks:
-[Alfredo Sequeida](https://github.com/AlfredoSequeida) for writing a detailed [article](https://www.alfredosequeida.com/blog/how-to-send-text-messages-for-free-using-python-use-python-to-send-text-messages-via-email/) and for making a great [video](https://www.youtube.com/watch?v=4-ysecoraKo&t=2s) that went step by step on how to send text messages using python. It was very useful for one of my projects so I am adding to what he did so that other people can find it useful.  
+[Alfredo Sequeida](https://github.com/AlfredoSequeida) for writing a detailed [article](https://www.alfredosequeida.com/blog/how-to-send-text-messages-for-free-using-python-use-python-to-send-text-messages-via-email/) and for making a great [video](https://www.youtube.com/watch?v=4-ysecoraKo&t=2s) that went step by step on how to send text messages using python. It was very useful for one of my projects so I am adding to what he did so that other people can find it useful.
+
+Alfredo also made a package named [etext](https://github.com/AlfredoSequeida/etext) so check that out!
