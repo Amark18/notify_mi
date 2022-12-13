@@ -45,7 +45,7 @@ class MessageError(Exception):
 
 class MessageTextError(Exception):
     def __str__(self):
-        return "Phone number AND phone provider aew required for sending a text message."
+        return "Phone number AND phone provider is required for sending a text message."
 
 class MessageEmailError(Exception):
     def __str__(self):
