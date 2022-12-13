@@ -18,8 +18,8 @@ Sending notifications through your Gmail account is not a novel idea. Notify Mi 
 #### Getting Started:
 
 1. Generate an app password for your gmail account by clicking [here](https://myaccount.google.com/apppasswords). 
-    - (optional) step by step [guide](https://www.getmailbird.com/gmail-app-password/)
-    - use app password with your gmail address in a tuple like so &#8594; ("gmail address", "app password")
+    - place your gmail address and app password in a tuple like so &#8594; ("gmail_address", "app_password")
+    - (optional) step by step [guide](https://www.getmailbird.com/gmail-app-password/) on how to generate an app password
     
 2. Install Notify Mi
 
@@ -40,22 +40,22 @@ from notify_mi import notify
 ###### Text messsage Only
 ```python
 # send only a text message
-# include phone_number and phone_provider
+# include phone_number and phone_provider (see providers list below)
 notify.send_message("Hello World!", 
     ("gmail", "password"), 
     phone_number = "your_number", 
-    phone_provider= "your phone provider, select from list below")
+    phone_provider= "your_phone_provider")
 ```
 
 ###### Text + Email
 ```python
 # send text message + email
-# include phone_number, phone_provider, and receiver email
+# include phone_number, phone_provider (see providers list below), and receiver email
 notify.send_message("Hello World!", 
     ("gmail", "password"), 
     phone_number = "your_number", 
-    phone_provider= "your phone provider, select from list below", 
-    send_to = "name@email.com")
+    phone_provider= "your_phone_provider", 
+    send_to = "email@gmail.com")
 ```
 
 ###### Email Only
@@ -64,7 +64,7 @@ notify.send_message("Hello World!",
 # include receiver email
 notify.send_message("Hello World!", 
     ("gmail", "password"), 
-    send_to = "name@email.com")
+    send_to = "email@gmail.com")
 ```
 
 ###### Optional Parameters
@@ -83,7 +83,7 @@ notify.send_message("Hello World!",
     threaded = True)
 ```
 
-##### List of Phone Providers
+###### List of Phone Providers
 ```python
 # Select From: 
 "AT&T", "Boost Mobile", "C-Spire", "Cricket Wireless", 
