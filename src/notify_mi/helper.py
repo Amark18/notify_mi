@@ -1,6 +1,5 @@
 import threading
 import functools
-from notify_me_secrets import *
 
 '''
 This is a helper class that contains constants 
@@ -19,15 +18,7 @@ AT_SYMBOL = "@"
 EMAIL_SUFFIX = ".com"
 MB = 1000000
 
-# see if credentials exist in notify_me_secrets.py
-def no_credentials_added():
-    return EMPTY in [PHONE_NUMBER, SENDER_CREDENTIALS, PHONE_PROVIDER]
-
 # exceptions
-class NoCredentialsAdded(Exception):
-    def __str__(self):
-        return "Credentials missing from notify_me_secrets.py file."
-
 class FileSizeExceeded(Exception):
     def __str__(self):
         return "Attachment cannot be more than 1MB."
@@ -47,6 +38,18 @@ class ExtensionNotFound(Exception):
 class EmailFormatError(Exception):
     def __str__(self):
         return "The receiver email should follow format -> name@email.com."
+
+class MessageError(Exception):
+    def __str__(self):
+        return "Message type not specified. Pick text, email, or both and include the respective paramters."
+
+class MessageTextError(Exception):
+    def __str__(self):
+        return "Phone number AND phone provider required for sending a text message."
+
+class MessageEmailError(Exception):
+    def __str__(self):
+        return "Receiver's email is required to send a message."
 
 # decorator to automatically launch a function in a thread
 def threaded(func):

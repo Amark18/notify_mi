@@ -13,27 +13,15 @@ With Notify Mi, you can also `attach a file` with your text or email message. Th
 
 #### Purpose:
 
-Sending notifications through your Gmail account is not a novel idea. Notify Mi is designed to be a `modular` and `reliable` way to send notifications without having to spend time and effort figuring out how to do it each time you want to add this feature to your project. Plus, the implementation process should be straightforward and `take only a few minutes`. This way, you can focus on other aspects of your project and save time. 
+Sending notifications through your Gmail account is not a novel idea. Notify Mi is designed to be a `modular` and `reliable` way to send notifications without having to spend time and effort figuring out how to do it each time you want to add this feature to your project. Plus, the implementation process should be straightforward and `take only a couple minutes`. This way, you can focus on other aspects of your project and save time. 
 
 #### Getting Started:
 
-To add Notify Mi to your project, place in your top level directory.  
-> Your_Project  
-> &emsp; &#x21B3; ✔️ notify_me  
-> &emsp; &#x21B3; your files  
-> &emsp; &#x21B3; a directory  
-> &emsp; &emsp; &#x21B3; ❌ notify_me
-
 ```python
-# 1. navigate to inside your project directory
-# 2. clone repo
-git clone https://github.com/Amark18/notify_mi.git
-# 3. go inside directory
-cd notify_mi
-# 4. generate an app password for your gmail account 
+# 1. generate an app password for your gmail account 
 # see https://www.getmailbird.com/gmail-app-password/
-# 5. add your gmail + password (from step 4), phone number
-# and phone provider to notify_mi_secrets.py
+# 2. install notify_mi using pip
+pip install notify_mi
 
 # ✔️ That's it, now you are ready to use
 ```
@@ -42,15 +30,33 @@ cd notify_mi
 
 ###### Import
 ```python
-# import into your own project
 from notify_mi import notify
 ```
 
-###### Text messsage Only (Default)
+###### Text messsage Only
 ```python
 # send only a text message
-notify.send_message("Hello World!")
+# include phone_number and phone_provider
+notify.send_message(message = "Hello World!", ("gmail", "password"), 
+    phone_number = "your_number", phone_provider= "select from list below")
+```
 
+###### Text + Email
+```python
+# send text message + email
+# include phone_number, phone_provider, and receiver email
+notify.send_message("Hello World!", ("gmail", "password"), phone_number = "your_number", phone_provider= "select from list below", send_to = "name@email.com")
+```
+
+###### Email Only
+```python
+# send only email
+# include receiver email
+notify.send_message("Hello World!", send_to = "name@email.com")
+```
+
+###### Optional Paramters
+```python
 # add a subject line to the message
 notify.send_message(subject = "EMERGENCY", message = "No sweets detected in fridge!")
 
@@ -61,17 +67,15 @@ notify.send_message(subject = "I found it", message = "My dream car", file_attac
 notify.send_message("Hello World!", threaded = True)
 ```
 
-###### Text + Email
+##### List of Phone Providers
 ```python
-# send text message + email
-notify.send_message("Hello World!", send_to = "name@email.com")
-```
-
-###### Email Only
-```python
-# send only email
-notify.send_message("Hello World!", send_to = "name@email.com", send_email_only = True)
+# Select From: 
+"AT&T", "Boost Mobile", "C-Spire", "Cricket Wireless", 
+"Consumer Cellular", "Google Project Fi", "Metro PCS", 
+"Mint Mobile", "Page Plus", "Republic Wireless", "Sprint",
+"Straight Talk", "T-Mobile", "Ting", "Tracfone", 
+"U.S. Cellular", "Verizon", "Virgin Mobile", and "Xfinity Mobile"
 ```
 
 #### Special Thanks:
-[Alfredo Sequeida](https://github.com/AlfredoSequeida) for writing a detailed [article](https://www.alfredosequeida.com/blog/how-to-send-text-messages-for-free-using-python-use-python-to-send-text-messages-via-email/) and for making a great [video](https://www.youtube.com/watch?v=4-ysecoraKo&t=2s) that went step by step on how to send text messages using python. It was very useful for one of my projects so I am adding to what he did so that other people can find it useful.
+[Alfredo Sequeida](https://github.com/AlfredoSequeida) for writing a detailed [article](https://www.alfredosequeida.com/blog/how-to-send-text-messages-for-free-using-python-use-python-to-send-text-messages-via-email/) and for making a great [video](https://www.youtube.com/watch?v=4-ysecoraKo&t=2s) that went step by step on how to send text messages using python. It was very useful for one of my projects so I am adding to what he did so that other people can find it useful.  
