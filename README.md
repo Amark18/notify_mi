@@ -37,7 +37,7 @@ from notify_mi import notify
 ```python
 # send only a text message
 # include phone_number and phone_provider
-notify.send_message(message = "Hello World!", ("gmail", "password"), 
+notify.send_message("Hello World!", ("gmail", "password"), 
     phone_number = "your_number", phone_provider= "select from list below")
 ```
 
