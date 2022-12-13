@@ -37,15 +37,15 @@ class ExtensionNotFound(Exception):
     
 class EmailFormatError(Exception):
     def __str__(self):
-        return "The receiver email should follow format -> name@email.com."
+        return "The receiver email should follow the following format -> name@email.com."
 
 class MessageError(Exception):
     def __str__(self):
-        return "Message type not specified. Pick text, email, or both and include the respective paramters."
+        return "Message type not specified. Pick text, email, or both and include the respective parameters."
 
 class MessageTextError(Exception):
     def __str__(self):
-        return "Phone number AND phone provider required for sending a text message."
+        return "Phone number AND phone provider aew required for sending a text message."
 
 class MessageEmailError(Exception):
     def __str__(self):
