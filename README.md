@@ -41,16 +41,20 @@ from notify_mi import notify
 ```python
 # send only a text message
 # include phone_number and phone_provider
-notify.send_message("Hello World!", ("gmail", "password"), 
-    phone_number = "your_number", phone_provider= "select from list below")
+notify.send_message("Hello World!", 
+    ("gmail", "password"), 
+    phone_number = "your_number", 
+    phone_provider= "your phone provider, select from list below")
 ```
 
 ###### Text + Email
 ```python
 # send text message + email
 # include phone_number, phone_provider, and receiver email
-notify.send_message("Hello World!", ("gmail", "password"), 
-    phone_number = "your_number", phone_provider= "select from list below", 
+notify.send_message("Hello World!", 
+    ("gmail", "password"), 
+    phone_number = "your_number", 
+    phone_provider= "your phone provider, select from list below", 
     send_to = "name@email.com")
 ```
 
@@ -58,21 +62,25 @@ notify.send_message("Hello World!", ("gmail", "password"),
 ```python
 # send only email
 # include receiver email
-notify.send_message("Hello World!", ("gmail", "password"), 
+notify.send_message("Hello World!", 
+    ("gmail", "password"), 
     send_to = "name@email.com")
 ```
 
 ###### Optional Parameters
 ```python
 # add a subject line to the message
-notify.send_message(subject = "EMERGENCY", message = "No sweets detected in fridge!")
+notify.send_message(subject = "EMERGENCY", 
+    message = "No sweets detected in fridge!")
 
 # add a file attachment (69 file types supported)
-notify.send_message(subject = "I found it", message = "My dream car", 
+notify.send_message(subject = "I found it", 
+    message = "My dream car", 
     file_attachment = "/path/car.png")
 
 # run without blocking main thread
-notify.send_message("Hello World!", threaded = True)
+notify.send_message("Hello World!", 
+    threaded = True)
 ```
 
 ##### List of Phone Providers
