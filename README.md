@@ -19,7 +19,7 @@ Sending notifications through your Gmail account is not a novel idea. Notify Mi 
 
 1. Generate an app password for your gmail account by clicking [here](https://myaccount.google.com/apppasswords). 
     - \<optional\> step by step [guide](https://www.getmailbird.com/gmail-app-password/)
-    - use this password with your gmail like so ("your gmail address", "insert password here")
+    - use app password with your gmail address in a tuple like so &#8594; ("gmail address", "app password")
     
 2. Install Notify Mi
 
