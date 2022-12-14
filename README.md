@@ -9,6 +9,7 @@ With Notify Mi, you can also `attach a file` with your text or email message. Th
 - [Purpose](#purpose)
 - [Getting Started](#getting-started)
 - [Usage](#usage)
+- [List of Phone Providers](#list-of-phone-providers)
 - [Special Thanks](#special-thanks)
 
 #### Purpose:
@@ -98,7 +99,7 @@ notify.send_message(threaded = True,
        message = "No sweets detected in fridge!")
 ```
 
-###### List of Phone Providers
+#### List of Phone Providers
 ```python
 # Select From: 
 "AT&T", "Boost Mobile", "C-Spire", "Cricket Wireless", 
