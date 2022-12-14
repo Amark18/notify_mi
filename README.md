@@ -41,21 +41,23 @@ from notify_mi import notify
 ```python
 # send only a text message
 # include phone_number and phone_provider (see providers list below)
+# phone number: "(619) 123-4567", "619-123-4567", or "6191234567" (all acceptable)
 notify.send_message("Hello World!", 
-    ("gmail", "password"), 
-    phone_number = "your_number", 
-    phone_provider= "your_phone_provider")
+       ("gmail", "password"), 
+       phone_number = "your_number", 
+       phone_provider= "your_phone_provider")
 ```
 
 ###### Text + Email
 ```python
 # send text message + email
 # include phone_number, phone_provider (see providers list below), and receiver email
+# phone number: "(619) 123-4567", "619-123-4567", or "6191234567" (all acceptable)
 notify.send_message("Hello World!", 
-    ("gmail", "password"), 
-    phone_number = "your_number", 
-    phone_provider= "your_phone_provider", 
-    send_to = "email@gmail.com")
+       ("gmail", "password"), 
+       phone_number = "your_number", 
+       phone_provider= "your_phone_provider", 
+       send_to = "email@gmail.com")
 ```
 
 ###### Email Only
@@ -63,24 +65,33 @@ notify.send_message("Hello World!",
 # send only email
 # include receiver email
 notify.send_message("Hello World!", 
-    ("gmail", "password"), 
-    send_to = "email@gmail.com")
+       ("gmail", "password"), 
+       send_to = "email@gmail.com")
 ```
 
-###### Optional Parameters
+###### Other Parameters
 ```python
 # add a subject line to the message
 notify.send_message(subject = "EMERGENCY", 
-    message = "No sweets detected in fridge!")
+       message = "No sweets detected in fridge!")
 
 # add a file attachment (69 file types supported)
 notify.send_message(subject = "I found it", 
-    message = "My dream car", 
-    file_attachment = "/path/car.png")
+       message = "My dream car", 
+       file_attachment = "/path/car.png")
 
 # run without blocking main thread
 notify.send_message("Hello World!", 
-    threaded = True)
+       threaded = True)
+       
+# you can re-order any of the parameters
+notify.send_message(threaded = True,
+       file_attachment = "/path/to/file"
+       phone_number = "your_number", 
+       phone_provider = "your_phone_provider", 
+       send_to = "email@gmail.com",
+       sender_credentials = ("gmail", "password"), 
+       message = "No sweets detected in fridge!")
 ```
 
 ###### List of Phone Providers
